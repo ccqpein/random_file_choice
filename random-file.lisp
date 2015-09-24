@@ -1,18 +1,18 @@
 (load "/Users/ccQ/Desktop/lispexci/cl-fad/load.lisp")
 
-(defvar *list_of_files* nil)
+(defvar *list-of-files* nil)
 
-(defun get_files_or_dir (dir_input)
-  (cl-fad:list-directory dir_input))
+(defun get-files-or-dir (dir-input)
+  (cl-fad:list-directory dir-input))
 
-(defun push_to_list (dir_input)
-  (push (get_files_or_dir dir_input) *list_of_files*))
+(defun push-to-list (dir-input)
+  (push (get-files-or-dir dir-input) *list-of-files*))
 
-(defun push_to_list2 (dir_input)
-  (dolist (x (get_files_or_dir dir_input)) (push x *list_of_files*)))
+(defun push-to-list2 (dir-input)
+  (dolist (x (get-files-or-dir dir-input)) (push x *list-of-files*)))
 
-(defun choice_the_video (*list_of_files*)
-  (print (nth (random (length *list_of_files*)) *list_of_files*)))
+(defun choice-the-video (*list-of-files*)
+  (print (nth (random (length *list-of-files*)) *list-of-files*)))
 
-(defun open_by_system (dir)
+(defun open-by-system (dir)
   (sb-ext:run-program "/usr/bin/open" (list "-a" "Preview" dir)))
