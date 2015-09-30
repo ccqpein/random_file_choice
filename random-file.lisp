@@ -1,3 +1,6 @@
+(load "/Users/ccQ/Desktop/lispexci/cl-fad/load.lisp")
+(load "/Users/ccQ/quicklisp/setup.lisp")
+(ql:quickload 'inferior-shell)
 (defvar *list-of-files* nil)
 
 (defun get-files-or-dir (dir-input)
@@ -12,11 +15,10 @@
 (defun open-by-system (file)
   (inferior-shell:run/ss (list "open" file)))
 
-(defun choice-the-video ()
+(defun choice-file-to-open ()
   (open-by-system (nth (random (length *list-of-files*)) *list-of-files*)))
 
 (defun main ()
-  (load "/Users/ccQ/Desktop/lispexci/cl-fad/load.lisp")
-  (load "~/quicklisp/setup.lisp")
-  (ql:quickload 'inferior-shell))
-  
+  (push-to-list2 "/Users/ccQ/Desktop/htmlexci")
+  (choice-file-to-open )
+  )

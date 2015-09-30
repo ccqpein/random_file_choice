@@ -3,8 +3,8 @@
 ## Dependent on
 
 cl-fad
+**quicklisp && inferior-shell**
 
 ## To do
 
-+ push\_to\_list2 function need improve
-+ make \*var\* using more clear
+SHELL var import
