@@ -6,14 +6,16 @@
 (defvar *list-all-files* nil)
 
 (defun get-files-or-dir (dir-input)
-  (cl-fad:walk-directory dir-input #'(lambda (x) (push x *list-all-files*))))
+  (let (files)
+    (cl-fad:walk-directory dir-input #'(lambda (x)
+					 (push x files)))
+    files))
 
 (defun push-to-list (dir-input)
   (push (get-files-or-dir dir-input) *list-of-files*))
 
 (defun push-to-list2 (dir-input)
-  (get-files-or-dir dir-input)
-  (dolist (x *list-all-files*)
+  (dolist (x (get-files-or-dir dir-input))
     (loop for i in '("db" "lisp")
        when (equalp (pathname-type x) i)
 	 do (push x *list-of-files*))))
