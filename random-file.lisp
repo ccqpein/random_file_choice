@@ -14,8 +14,9 @@
 (defun push-to-list2 (dir-input)
   (get-files-or-dir dir-input)
   (dolist (x *list-all-files*)
-    (if (find (pathname-type x) '("db" "lisp"))
-	(push x *list-of-files*))))
+    (loop for i in '("db" "lisp")
+       when (equalp (pathname-type x) i)
+	 do (push x *list-of-files*))))
 
 (defun open-by-system (file)
   (inferior-shell:run/ss (list "open" file)))
