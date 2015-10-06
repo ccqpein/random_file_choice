@@ -3,7 +3,6 @@
 (ql:quickload 'inferior-shell)
 
 (defvar *list-of-files* nil)
-(defvar *list-all-files* nil)
 
 (defun get-files-or-dir (dir-input)
   (let (files)
