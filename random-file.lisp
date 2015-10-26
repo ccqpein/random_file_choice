@@ -15,7 +15,7 @@
 
 (defun push-to-list2 (dir-input)
   (dolist (x (get-files-or-dir dir-input))
-    (loop for i in '("db" "lisp")
+    (loop for i in '("avi" "rmvb")
        when (equalp (pathname-type x) i)
 	 do (push x *list-of-files*))))
 
@@ -26,6 +26,6 @@
   (open-by-system (nth (random (length *list-of-files*)) *list-of-files*)))
 
 (defun main ()
-  (push-to-list2 "/Users/ccQ/Desktop/htmlexci")
+  (push-to-list2 (read))
   (choice-file-to-open )
   )
