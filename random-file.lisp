@@ -31,5 +31,5 @@
   (open-by-system (nth (random (length files)) files)))
 
 (defun main ()
-  (choice-file-to-open (push-to-list2 (read)))
+  (choice-file-to-open (push-to-list (read)))
   )
