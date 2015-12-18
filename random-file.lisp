@@ -13,7 +13,7 @@
 (defun push-to-list (dir-input)
   (let (listoffiles)
     (dolist (x (get-files-or-dir dir-input))
-      (loop for i in '("avi" "rmvb" "MOV")
+      (loop for i in '("avi" "rmvb" "MOV" "mp4" "mkv")
 	 when (equalp (pathname-type x) i)
 	   do (push x listoffiles)))
     listoffiles))
