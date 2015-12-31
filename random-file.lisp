@@ -1,6 +1,7 @@
 (load "/Users/ccQ/Desktop/lispexci/cl-fad/load.lisp")
 (load "/Users/ccQ/quicklisp/setup.lisp")
 (ql:quickload 'inferior-shell)
+(setf *random-state* (make-random-state t))
 
 ;(defvar *list-of-files* nil)
 
@@ -15,7 +16,8 @@
     (dolist (x (get-files-or-dir dir-input))
       (loop for i in '("avi" "rmvb" "MOV" "mp4" "mkv")
 	 when (equalp (pathname-type x) i)
-	   do (push x listoffiles)))
+         do (push x listoffiles)))
+    (print listoffiles)
     listoffiles))
 
 ;(defun push-to-list2 (dir-input)
@@ -28,7 +30,13 @@
   (inferior-shell:run/ss (list "open" file)))
 
 (defun choice-file-to-open (files)
-  (open-by-system (nth (random (length files)) files)))
+  (let ((filePath (nth (random (length files)) files)))
+    (open-by-system filePath)
+    (with-open-file (file "./logs" :direction :output
+                          :if-exists :append
+                          :external-format '(:utf-8 :replacement #\?))
+      (format file "~S~%" (namestring filePath)))))
+
 
 (defun main ()
   (choice-file-to-open (push-to-list (read-line)))
