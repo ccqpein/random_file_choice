@@ -33,7 +33,8 @@
   (let* ((randomNum (random (length files) (make-random-state t)))
          (filePath (nth randomNum files)))
     (open-by-system filePath)
-    (with-open-file (file "./logs" :direction :output
+    (with-open-file (file "/Users/ccQ/Desktop/logs" :direction :output
+                          :if-does-not-exist :create
                           :if-exists :append
                           :external-format '(:utf-8 :replacement #\?))
       (format file "~S~%" (namestring filePath)))))
