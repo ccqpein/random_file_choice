@@ -2,9 +2,10 @@
 
 ## Dependent on
 
-cl-fad
-**quicklisp && inferior-shell**
++ cl-fad
++ **quicklisp && inferior-shell**
 
 ## To do
 
-SHELL var import
++ SHELL var import
++ Add log file to current dir
