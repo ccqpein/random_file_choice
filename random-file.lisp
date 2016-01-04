@@ -43,5 +43,7 @@
 
 
 (defun main ()
-  (choice-file-to-open (push-to-list (read-line)))
-  )
+  (let ((dir-input (nth 1 sb-ext:*posix-argv*)))
+    (if (eql dir-input nil)
+        (choice-file-to-open (push-to-list (read-line)))
+        (choice-file-to-open (push-to-list dir-input)))))
