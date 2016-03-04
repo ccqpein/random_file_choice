@@ -7,5 +7,5 @@
 
 ## To do
 
-+ SHELL var import
-+ Add log file to current dir
++ ~~SHELL var import~~
++ ~~Add log file to current dir~~
