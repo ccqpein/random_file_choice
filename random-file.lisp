@@ -2,9 +2,6 @@
 (load "/Users/ccQ/quicklisp/setup.lisp")
 (ql:quickload 'inferior-shell)
 
-;(setf *random-state* (make-random-state t))
-;(defvar *list-of-files* nil)
-
 (defun get-files-or-dir (dir-input)
   (let (files)
     (cl-fad:walk-directory dir-input #'(lambda (x)
@@ -20,12 +17,6 @@
          do (push x listoffiles))))
 ;    (print listoffiles)
     listoffiles))
-#|
-(defun push-to-list2 (dir-input)
-  (dolist (x (get-files-or-dir dir-input))
-    (loop for i in '("avi" "rmvb")
-       when (equalp (pathname-type x) i)
-	 do (push x *list-of-files*))))|#
 
 (defun open-by-system (file)
   (inferior-shell:run/ss (list "open" file)))
