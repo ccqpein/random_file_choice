@@ -1,11 +1,5 @@
 # Use lisp to choice random file
 
-## Dependent on
+## Usage ##
 
-+ cl-fad
-+ **quicklisp && inferior-shell**
-
-## To do
-
-+ ~~SHELL var import~~
-+ ~~Add log file to current dir~~
+`sbcl --load ./random-file.lisp {root path}`
